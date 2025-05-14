@@ -11,7 +11,7 @@
 	<groupId>com.exodia-portal</groupId>
 	<artifactId>common</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>common</name>
+	<name>exo-common</name>
 	<description>Exodia Portal Common</description>
 	<url/>
 	<licenses>

@@ -18,7 +18,6 @@ import lombok.Setter;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
-import org.hibernate.annotations.Where;
 
 import java.util.List;
 
