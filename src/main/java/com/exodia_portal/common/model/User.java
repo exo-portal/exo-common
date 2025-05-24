@@ -53,7 +53,7 @@ public class User extends Auditable {
     private boolean isAccountLock;
 
     @JsonIgnore
-    private boolean hasEmailLogin;
+    private boolean isEmailLoginEnabled;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
