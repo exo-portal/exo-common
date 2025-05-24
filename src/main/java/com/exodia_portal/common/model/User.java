@@ -52,6 +52,9 @@ public class User extends Auditable {
 
     private boolean isAccountLock;
 
+    @JsonIgnore
+    private boolean hasEmailLogin;
+
     @JsonManagedReference
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @Filter(name = "isDeletedFilter", condition = "isDeleted = :isDeleted")
