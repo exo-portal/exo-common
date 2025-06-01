@@ -12,7 +12,7 @@ public class ExoPortalErrorMessage extends RuntimeException {
 
 
     public ExoPortalErrorMessage(int status, ExoErrorTypeEnum errorType, List<Map<String, String>> errorMessageList) {
-        super("Custom error message");
+        super(String.format("Error occurred with status: %d, type: %s", status, errorType));
         this.status = status;
         this.errorType = errorType.toString();
         this.errorMessageList = errorMessageList;
