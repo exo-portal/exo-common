@@ -15,7 +15,13 @@ public class ExoPortalErrorMessage extends RuntimeException {
 
     private final List<Map<String, String>> errorMessageList;
 
-
+    /**
+     * Constructs a new ExoPortalErrorMessage with the specified status, error type, and error messages.
+     *
+     * @param status          the HTTP status code
+     * @param errorType       the type of error
+     * @param errorMessageList a list of error messages, each represented as a map
+     */
     public ExoPortalErrorMessage(int status, ExoErrorTypeEnum errorType, List<Map<String, String>> errorMessageList) {
         super(String.format("Error occurred with status: %d, type: %s", status, errorType));
         this.status = status;
