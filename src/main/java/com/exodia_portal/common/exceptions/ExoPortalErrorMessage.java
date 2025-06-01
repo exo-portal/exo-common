@@ -3,6 +3,7 @@ package com.exodia_portal.common.exceptions;
 import com.exodia_portal.common.constant.ExoErrorTypeEnum;
 import lombok.Getter;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +20,6 @@ public class ExoPortalErrorMessage extends RuntimeException {
         super(String.format("Error occurred with status: %d, type: %s", status, errorType));
         this.status = status;
         this.errorType = errorType;
-        this.errorMessageList = errorMessageList;
+        this.errorMessageList = Collections.unmodifiableList(errorMessageList);
     }
 }
