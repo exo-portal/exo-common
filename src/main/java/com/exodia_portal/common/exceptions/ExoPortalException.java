@@ -1,6 +1,5 @@
 package com.exodia_portal.common.exceptions;
 
-import com.exodia_portal.common.constant.ExoErrorKeyEnum;
 import com.exodia_portal.common.constant.ExoErrorTypeEnum;
 import lombok.Getter;
 
