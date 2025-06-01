@@ -23,8 +23,8 @@ public class GlobalExceptionHandler {
      * @param ex The exception of type ExoPortalErrorMessage that was thrown.
      * @return A ResponseEntity containing a map with the status, error type, and error message list.
      */
-    @ExceptionHandler(ExoPortalErrorMessage.class)
-    public ResponseEntity<Map<String, Object>> handleExoPortalErrorMessage(ExoPortalErrorMessage ex) {
+    @ExceptionHandler(ExoPortalException.class)
+    public ResponseEntity<Map<String, Object>> handleExoPortalErrorMessage(ExoPortalException ex) {
 
         // Log exception details
         logger.error("Exception occurred: Status={}, ErrorType={}, ErrorMessages={}",
