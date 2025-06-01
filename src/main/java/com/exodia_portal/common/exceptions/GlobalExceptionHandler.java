@@ -14,17 +14,17 @@ public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /**
-     * Handles exceptions of type ExoPortalErrorMessage and returns a structured response.
+     * Handles exceptions of type ExoPortalException and returns a structured response.
      *
      * This method is annotated with @ExceptionHandler to indicate that it handles
      * exceptions to the specified type. It logs the exception details for troubleshooting
      * and monitoring purposes and constructs a response entity containing the exception details.
      *
-     * @param ex The exception of type ExoPortalErrorMessage that was thrown.
+     * @param ex The exception of type ExoPortalException that was thrown.
      * @return A ResponseEntity containing a map with the status, error type, and error message list.
      */
     @ExceptionHandler(ExoPortalException.class)
-    public ResponseEntity<Map<String, Object>> handleExoPortalErrorMessage(ExoPortalException ex) {
+    public ResponseEntity<Map<String, Object>> handleExoPortalException(ExoPortalException ex) {
 
         // Log exception details
         logger.error("Exception occurred: Status={}, ErrorType={}, ErrorMessages={}",
