@@ -60,7 +60,7 @@ public class User extends Auditable {
     @Filter(name = "isDeletedFilter", condition = "isDeleted = :isDeleted")
     private List<LoginMethod> loginMethods;
 
-    // Static property names for JSON serialization
-    public static String emailPropertyName = "email";
-    public static String passwordPropertyName = "password";
+    // Constants for field names
+    public static final String EMAIL = "email";
+    public static final String PASSWORD = "password";
 }
