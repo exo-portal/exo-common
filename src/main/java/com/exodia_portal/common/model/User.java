@@ -59,4 +59,8 @@ public class User extends Auditable {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @Filter(name = "isDeletedFilter", condition = "isDeleted = :isDeleted")
     private List<LoginMethod> loginMethods;
+
+    // Static property names for JSON serialization
+    public static String emailPropertyName = "email";
+    public static String passwordPropertyName = "password";
 }
