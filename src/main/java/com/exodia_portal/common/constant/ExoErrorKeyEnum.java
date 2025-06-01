@@ -10,4 +10,9 @@ public enum ExoErrorKeyEnum {
     INVALID_EMAIL_AND_PASSWORD("errorMessage.invalidEmailAndPassword");
 
     private final String key;
+
+    @Override
+    public String toString() {
+        return key;
+    }
 }
