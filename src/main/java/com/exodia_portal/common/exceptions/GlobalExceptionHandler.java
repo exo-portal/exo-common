@@ -13,7 +13,6 @@ public class GlobalExceptionHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-
     /**
      * Handles exceptions of type ExoPortalErrorMessage and returns a structured response.
      *
@@ -38,4 +37,5 @@ public class GlobalExceptionHandler {
                         "errorMessageList", ex.getErrorMessageList()
                 ));
     }
+
 }
