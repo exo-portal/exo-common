@@ -1,5 +1,6 @@
 package com.exodia_portal.common.exceptions;
 
+import com.exodia_portal.common.constant.ExoConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -32,9 +33,9 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(ex.getStatus())
                 .body(Map.of(
-                        "status", ex.getStatus(),
-                        "errorType", ex.getErrorType().toString(),
-                        "errorMessageList", ex.getErrorMessageList()
+                        ExoConstant.STATUS_KEY, ex.getStatus(),
+                        ExoConstant.ERROR_TYPE_KEY, ex.getErrorType().toString(),
+                        ExoConstant.ERROR_MESSAGE_LIST_KEY, ex.getErrorMessageList()
                 ));
     }
 
