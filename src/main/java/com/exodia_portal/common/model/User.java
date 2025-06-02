@@ -57,7 +57,7 @@ public class User extends Auditable {
     @Filter(name = "isDeletedFilter", condition = "isDeleted = :isDeleted")
     private List<LoginMethod> loginMethods;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "UserRoles",
             joinColumns = @JoinColumn(name = "userId"),
             inverseJoinColumns = @JoinColumn(name = "roleId"))
