@@ -1,6 +1,6 @@
 package com.exodia_portal.common.exceptions;
 
-import com.exodia_portal.common.constant.ExoErrorTypeEnum;
+import com.exodia_portal.common.enums.ExoErrorTypeEnum;
 import lombok.Getter;
 
 import java.util.Collections;

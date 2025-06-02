@@ -1,4 +1,4 @@
-package com.exodia_portal.common.constant;
+package com.exodia_portal.common.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

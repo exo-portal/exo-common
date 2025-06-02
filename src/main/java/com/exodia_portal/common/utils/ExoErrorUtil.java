@@ -1,7 +1,7 @@
 package com.exodia_portal.common.utils;
 
 import com.exodia_portal.common.constant.ExoConstant;
-import com.exodia_portal.common.constant.ExoErrorKeyEnum;
+import com.exodia_portal.common.enums.ExoErrorKeyEnum;
 import lombok.experimental.UtilityClass;
 
 import java.util.Map;
