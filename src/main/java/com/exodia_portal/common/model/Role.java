@@ -27,7 +27,7 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Role")
+@Table(name = "roles")
 public class Role extends Auditable {
 
     @Id
