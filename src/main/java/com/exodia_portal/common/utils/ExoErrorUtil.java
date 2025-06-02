@@ -6,6 +6,11 @@ import lombok.experimental.UtilityClass;
 
 import java.util.Map;
 
+/**
+ * Utility class for building error details in a standardized format.
+ * Provides methods to construct error maps for specific fields,
+ * ensuring consistency in error handling across the application.
+ */
 @UtilityClass
 public class ExoErrorUtil {
 
