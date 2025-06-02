@@ -58,8 +58,8 @@ public class User extends Auditable {
     private UserInfo userInfo;
 
     // Constants for field names
-    public static final String EMAIL = "email";
+    public static final String USER_EMAIL_FIELD = "email";
 
-    public static final String PASSWORD = "password";
+    public static final String USER_PASSWORD_PASSWORD = "password";
 
 }

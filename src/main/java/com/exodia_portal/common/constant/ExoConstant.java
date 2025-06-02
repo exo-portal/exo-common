@@ -1,5 +1,8 @@
 package com.exodia_portal.common.constant;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class ExoConstant {
 
     public static final String EXO_TOKEN_NAME = "exoTkn";
