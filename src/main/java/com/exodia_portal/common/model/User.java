@@ -60,6 +60,6 @@ public class User extends Auditable {
     // Constants for field names
     public static final String USER_EMAIL_FIELD = "email";
 
-    public static final String USER_PASSWORD_PASSWORD = "password";
+    public static final String USER_PASSWORD_FIELD = "password";
 
 }
