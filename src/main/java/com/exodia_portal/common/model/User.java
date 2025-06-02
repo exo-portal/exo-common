@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,17 +36,9 @@ public class User extends Auditable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String login;
-
-    private String userName;
-
     private String email;
 
-    private String mobileNumber;
-
-    private String fullName;
-
-    private String avatarUrl;
+    private String login;
 
     @JsonIgnore
     private String password;
@@ -60,7 +53,13 @@ public class User extends Auditable {
     @Filter(name = "isDeletedFilter", condition = "isDeleted = :isDeleted")
     private List<LoginMethod> loginMethods;
 
+    @JsonManagedReference
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private UserInfo userInfo;
+
     // Constants for field names
     public static final String EMAIL = "email";
+
     public static final String PASSWORD = "password";
+
 }
