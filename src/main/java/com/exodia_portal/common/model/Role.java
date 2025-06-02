@@ -39,6 +39,12 @@ public class Role extends Auditable {
     @Enumerated(value = EnumType.STRING)
     private AccessLevelTypeEnum accessLevelRole;
 
+    /**
+     * Represents the many-to-many relationship between roles and feature accesses.
+     * This association defines which features are accessible by a specific role.
+     * Cascade behavior is restricted to PERSIST and MERGE to prevent unintended deletions
+     * or updates of shared FeatureAccess entities.
+     */
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "RoleFeatureAccess",
