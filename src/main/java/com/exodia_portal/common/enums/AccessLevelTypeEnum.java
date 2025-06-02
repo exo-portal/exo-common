@@ -16,9 +16,9 @@ public enum AccessLevelTypeEnum {
     ROLE_CLIENT("Client"),
     //    Employee Roles
     ROLE_MANAGER("Manager"),
+    ROLE_PROJECT_LEAD("Project Lead"),
     ROLE_TEAM_LEAD("Team Lead"),
     ROLE_TECH_LEAD("Tech Lead"),
-    ROLE_PROJECT_LEAD("Project Lead"),
     ROLE_SENIOR_EMPLOYEE("Senior Employee"),
     ROLE_MID_LEVEL_EMPLOYEE("Mid Level Employee"),
     ROLE_JUNIOR_EMPLOYEE("Junior Employee"),
