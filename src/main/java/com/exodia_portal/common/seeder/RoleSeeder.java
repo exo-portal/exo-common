@@ -31,9 +31,9 @@ public class RoleSeeder implements CommandLineRunner {
         createRoleIfNotExists(AccessLevelTypeEnum.ROLE_HR.getDisplayName(), AccessLevelTypeEnum.ROLE_HR);
         createRoleIfNotExists(AccessLevelTypeEnum.ROLE_CLIENT.getDisplayName(), AccessLevelTypeEnum.ROLE_CLIENT);
         createRoleIfNotExists(AccessLevelTypeEnum.ROLE_MANAGER.getDisplayName(), AccessLevelTypeEnum.ROLE_MANAGER);
-        createRoleIfNotExists(AccessLevelTypeEnum.ROLE_TEAM_LEAD.getDisplayName(), AccessLevelTypeEnum.ROLE_TEAM_LEAD);
-        createRoleIfNotExists(AccessLevelTypeEnum.ROLE_TEAM_LEAD.getDisplayName(), AccessLevelTypeEnum.ROLE_TEAM_LEAD);
         createRoleIfNotExists(AccessLevelTypeEnum.ROLE_PROJECT_LEAD.getDisplayName(), AccessLevelTypeEnum.ROLE_PROJECT_LEAD);
+        createRoleIfNotExists(AccessLevelTypeEnum.ROLE_TEAM_LEAD.getDisplayName(), AccessLevelTypeEnum.ROLE_TEAM_LEAD);
+        createRoleIfNotExists(AccessLevelTypeEnum.ROLE_TECH_LEAD.getDisplayName(), AccessLevelTypeEnum.ROLE_TECH_LEAD);
         createRoleIfNotExists(AccessLevelTypeEnum.ROLE_SENIOR_EMPLOYEE.getDisplayName(), AccessLevelTypeEnum.ROLE_SENIOR_EMPLOYEE);
         createRoleIfNotExists(AccessLevelTypeEnum.ROLE_MID_LEVEL_EMPLOYEE.getDisplayName(), AccessLevelTypeEnum.ROLE_MID_LEVEL_EMPLOYEE);
         createRoleIfNotExists(AccessLevelTypeEnum.ROLE_JUNIOR_EMPLOYEE.getDisplayName(), AccessLevelTypeEnum.ROLE_JUNIOR_EMPLOYEE);
