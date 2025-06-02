@@ -3,7 +3,6 @@ package com.exodia_portal.common.seeder;
 import com.exodia_portal.common.enums.AccessLevelTypeEnum;
 import com.exodia_portal.common.model.Role;
 import com.exodia_portal.common.repository.RoleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,8 +11,16 @@ import java.util.Optional;
 @Component
 public class RoleSeeder implements CommandLineRunner {
 
-    @Autowired
-    private RoleRepository roleRepository;
+    private final RoleRepository roleRepository;
+
+    /**
+     * Constructor for RoleSeeder that initializes the role repository.
+     *
+     * @param roleRepository The repository used to interact with the Role entity in the database.
+     */
+    public RoleSeeder(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
 
     @Override
     public void run(String... args) throws Exception {
