@@ -33,7 +33,7 @@ public class RoleSeeder implements CommandLineRunner {
      */
     private void seedRoles() {
         for (AccessLevelTypeEnum accessLevel : AccessLevelTypeEnum.values()) {
-            createRoleIfNotExists(accessLevel.getDisplayName(), accessLevel);
+            createRoleIfNotExists(accessLevel.getAccessLevel(), accessLevel);
         }
     }
 
@@ -44,7 +44,7 @@ public class RoleSeeder implements CommandLineRunner {
      * @param accessLevel The access level associated with the role.
      */
     private void createRoleIfNotExists(String roleName, AccessLevelTypeEnum accessLevel) {
-        Optional<Role> existingRole = roleRepository.findByRoleName(roleName);
+        Optional<Role> existingRole = roleRepository.findByAccessLevelRole(accessLevel);
         if (existingRole.isEmpty()) {
             Role role = Role.builder()
                     .roleName(roleName)
