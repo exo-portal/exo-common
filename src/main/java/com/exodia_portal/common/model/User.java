@@ -1,5 +1,6 @@
 package com.exodia_portal.common.model;
 
+import com.exodia_portal.common.enums.AccessLevelTypeEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
@@ -66,5 +67,57 @@ public class User extends Auditable {
     public static final String USER_EMAIL_FIELD = "email";
 
     public static final String USER_PASSWORD_FIELD = "password";
+
+    /**
+     * Retrieves the access level role of the default `UserRole`.
+     *
+     * @return the `AccessLevelTypeEnum` of the default role, or null if no default role exists.
+     */
+    public AccessLevelTypeEnum getDefaultAccessLevelRole() {
+        return this.getUserRoles().stream()
+                .filter(UserRole::isDefaultRole)
+                .map(userRole -> userRole.getRole().getAccessLevelRole())
+                .findFirst()
+                .orElse(null);
+    }
+
+    /**
+     * Retrieves the feature keys associated with the default `UserRole`.
+     *
+     * @return a list of feature keys for the default role.
+     */
+    public List<String> getDefaultRoleFeatureKeys() {
+        return this.getUserRoles().stream()
+                .filter(UserRole::isDefaultRole)
+                .flatMap(userRole -> userRole.getRole().getRoleFeatureAccesses().stream())
+                .map(roleFeatureAccess -> roleFeatureAccess.getFeatureAccess().getFeatureKey())
+                .toList();
+    }
+
+    /**
+     * Retrieves the feature keys associated with the specified `UserRole`.
+     *
+     * @param userRole the `UserRole` for which to retrieve feature keys.
+     * @return a list of feature keys for the specified role, or an empty list if the role is null or has no features.
+     */
+    public List<String> getRoleFeatureKeysByUserRole(UserRole userRole) {
+        if (userRole == null || userRole.getRole() == null) {
+            return List.of();
+        }
+        return userRole.getRole().getRoleFeatureAccesses().stream()
+                .map(roleFeatureAccess -> roleFeatureAccess.getFeatureAccess().getFeatureKey())
+                .toList();
+    }
+
+    /**
+     * Retrieves the names of all roles assigned to the user.
+     *
+     * @return a list of role names.
+     */
+    public List<AccessLevelTypeEnum> getAccessLevelRoles() {
+        return this.getUserRoles().stream()
+                .map(userRole -> userRole.getRole().getAccessLevelRole())
+                .toList();
+    }
 
 }
