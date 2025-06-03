@@ -22,6 +22,7 @@ import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
 
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Getter
@@ -73,12 +74,11 @@ public class User extends Auditable {
      *
      * @return the `AccessLevelTypeEnum` of the default role, or null if no default role exists.
      */
-    public AccessLevelTypeEnum getDefaultAccessLevelRole() {
+    public Optional<AccessLevelTypeEnum> getDefaultAccessLevelRole() {
         return this.getUserRoles().stream()
                 .filter(UserRole::isDefaultRole)
                 .map(userRole -> userRole.getRole().getAccessLevelRole())
-                .findFirst()
-                .orElse(null);
+                .findFirst();
     }
 
     /**
