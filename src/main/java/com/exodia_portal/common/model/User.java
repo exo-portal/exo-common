@@ -8,9 +8,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -24,7 +21,6 @@ import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -57,11 +53,10 @@ public class User extends Auditable {
     @Filter(name = "isDeletedFilter", condition = "isDeleted = :isDeleted")
     private List<LoginMethod> loginMethods;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "UserRoles",
-            joinColumns = @JoinColumn(name = "userId"),
-            inverseJoinColumns = @JoinColumn(name = "roleId"))
-    private Set<Role> roles;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @Filter(name = "isDeletedFilter", condition = "isDeleted = :isDeleted")
+    private List<UserRole> userRoles;
 
     @JsonManagedReference
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
