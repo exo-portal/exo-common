@@ -1,6 +1,8 @@
 package com.exodia_portal.common.model;
 
 import com.exodia_portal.common.enums.AccessLevelTypeEnum;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -9,9 +11,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +19,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Builder
@@ -39,18 +39,18 @@ public class Role extends Auditable {
     @Enumerated(value = EnumType.STRING)
     private AccessLevelTypeEnum accessLevelRole;
 
-    /**
-     * Represents the many-to-many relationship between roles and feature accesses.
-     * This association defines which features are accessible by a specific role.
-     * Cascade behavior is restricted to PERSIST and MERGE to prevent unintended deletions
-     * or updates of shared FeatureAccess entities.
-     */
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(
-            name = "RoleFeatureAccess",
-            joinColumns = @JoinColumn(name = "roleId"),
-            inverseJoinColumns = @JoinColumn(name = "featureAccessId")
-    )
-    private Set<FeatureAccess> featureAccesses;
+    @OneToMany(mappedBy = "role",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JsonBackReference
+    private List<UserRole> userRoles;
+
+    @OneToMany(mappedBy = "role",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JsonManagedReference
+    private List<RoleFeatureAccess> roleFeatureAccesses;
 
 }
