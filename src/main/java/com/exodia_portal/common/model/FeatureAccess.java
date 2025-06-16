@@ -38,6 +38,7 @@ public class FeatureAccess extends Auditable {
 
     @OneToMany(
             mappedBy = "featureAccess",
+
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
             orphanRemoval = true)

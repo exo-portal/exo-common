@@ -15,7 +15,8 @@ import lombok.Getter;
 public enum ExoErrorKeyEnum {
     EMAIL_ALREADY_EXISTS("errorMessage.emailAlreadyExists"),
     INVALID_EMAIL_AND_PASSWORD("errorMessage.invalidEmailAndPassword"),
-    ROLE_NOT_FOUND("errorMessage.roleNotFound");
+    ROLE_NOT_FOUND("errorMessage.roleNotFound"),
+    INVALID_OR_EXPIRED_TOKEN("errorMessage.invalidOrExpiredToken");
 
     private final String key;
 

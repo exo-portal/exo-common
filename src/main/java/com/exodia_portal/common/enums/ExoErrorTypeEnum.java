@@ -14,6 +14,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ExoErrorTypeEnum {
     TOAST("toast"),
+    MODAL("modal"),
     FIELD("field");
 
     private final String value;
