@@ -56,7 +56,7 @@ public class User extends Auditable {
     private List<LoginMethod> loginMethods;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @Filter(name = "isDeletedFilter", condition = "isDeleted = :isDeleted")
     private List<UserRole> userRoles;
 
