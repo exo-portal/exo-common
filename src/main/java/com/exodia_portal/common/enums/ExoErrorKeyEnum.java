@@ -13,6 +13,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ExoErrorKeyEnum {
+    USER_NOT_FOUND("errorMessage.userNotFound"),
     EMAIL_ALREADY_EXISTS("errorMessage.emailAlreadyExists"),
     INVALID_EMAIL_AND_PASSWORD("errorMessage.invalidEmailAndPassword"),
     ROLE_NOT_FOUND("errorMessage.roleNotFound"),
