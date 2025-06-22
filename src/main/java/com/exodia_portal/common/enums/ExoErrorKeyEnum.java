@@ -18,6 +18,8 @@ public enum ExoErrorKeyEnum {
     EMAIL_ALREADY_EXISTS("errorMessage.emailAlreadyExists"),
     INVALID_EMAIL_AND_PASSWORD("errorMessage.invalidEmailAndPassword"),
     ROLE_NOT_FOUND("errorMessage.roleNotFound"),
+    PASSWORD_SAME_AS_PREVIOUS("errorMessage.passwordSameAsPrevious"),
+    PASSWORD_SAME_AS_OLD("errorMessage.passwordSameAsOld"),
     INVALID_OR_EXPIRED_TOKEN("errorMessage.invalidOrExpiredToken");
 
     private final String key;
