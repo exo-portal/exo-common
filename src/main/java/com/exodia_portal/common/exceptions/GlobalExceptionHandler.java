@@ -1,6 +1,7 @@
 package com.exodia_portal.common.exceptions;
 
 import com.exodia_portal.common.constant.ExoConstant;
+import com.exodia_portal.common.enums.ExoErrorTypeEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class GlobalExceptionHandler {
 
     /**
      * Handles exceptions of type ExoPortalException and returns a structured response.
-     *
+     * <p>
      * This method is annotated with @ExceptionHandler to indicate that it handles
      * exceptions to the specified type. It logs the exception details for troubleshooting
      * and monitoring purposes and constructs a response entity containing the exception details.
@@ -31,11 +32,20 @@ public class GlobalExceptionHandler {
         logger.error("Exception occurred: Status={}, ErrorType={}, ErrorMessages={}",
                 ex.getStatus(), ex.getErrorType(), ex.getErrorMessageList(), ex);
 
+        // Determine the key and value for the error message
+        String errorMessageKey = (ex.getErrorType() == ExoErrorTypeEnum.MODAL || ex.getErrorType() == ExoErrorTypeEnum.TOAST)
+                ? ExoConstant.ERROR_MESSAGE_KEY
+                : ExoConstant.ERROR_MESSAGE_LIST_KEY;
+
+        Object errorMessageValue = (ex.getErrorType() == ExoErrorTypeEnum.MODAL || ex.getErrorType() == ExoErrorTypeEnum.TOAST)
+                ? ex.getErrorMessageList().getFirst() // Assuming the first element is the key
+                : ex.getErrorMessageList();
+
         return ResponseEntity.status(ex.getStatus())
                 .body(Map.of(
                         ExoConstant.STATUS_KEY, ex.getStatus(),
                         ExoConstant.ERROR_TYPE_KEY, ex.getErrorType().toString(),
-                        ExoConstant.ERROR_MESSAGE_LIST_KEY, ex.getErrorMessageList()
+                        errorMessageKey, errorMessageValue
                 ));
     }
 
