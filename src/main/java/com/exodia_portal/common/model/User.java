@@ -64,6 +64,11 @@ public class User extends Auditable {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private UserInfo userInfo;
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @Filter(name = "isDeletedFilter", condition = "isDeleted = :isDeleted")
+    private List<PasswordHistory> passwordHistories;
+
     // Constants for field names
     public static final String USER_EMAIL_FIELD = "email";
 
