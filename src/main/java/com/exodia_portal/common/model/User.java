@@ -66,7 +66,6 @@ public class User extends Auditable {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    @Filter(name = "isDeletedFilter", condition = "isDeleted = :isDeleted")
     private List<PasswordHistory> passwordHistories;
 
     // Constants for field names
