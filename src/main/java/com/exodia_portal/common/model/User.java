@@ -21,6 +21,7 @@ import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -120,6 +121,7 @@ public class User extends Auditable {
      */
     public List<AccessLevelTypeEnum> getAccessLevelRoles() {
         return this.getUserRoles().stream()
+                .sorted(Comparator.comparingLong(ur -> ur.getRole().getId()))
                 .map(userRole -> userRole.getRole().getAccessLevelRole())
                 .toList();
     }
