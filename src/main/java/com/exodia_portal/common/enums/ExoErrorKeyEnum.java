@@ -20,6 +20,8 @@ public enum ExoErrorKeyEnum {
     ROLE_NOT_FOUND("errorMessage.roleNotFound"),
     PASSWORD_SAME_AS_PREVIOUS("errorMessage.passwordSameAsPrevious"),
     PASSWORD_SAME_AS_OLD("errorMessage.passwordSameAsOld"),
+    ROLE_NOT_ALLOWED("errorMessage.roleNotAllowed"),
+    ROLE_NOT_EXIST("errorMessage.roleNotExist"),
     INVALID_OR_EXPIRED_TOKEN("errorMessage.invalidOrExpiredToken");
 
     private final String key;
