@@ -24,6 +24,7 @@ import org.hibernate.annotations.ParamDef;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -57,9 +58,9 @@ public class User extends Auditable {
     private List<LoginMethod> loginMethods;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @Filter(name = "isDeletedFilter", condition = "isDeleted = :isDeleted")
-    private List<UserRole> userRoles;
+    private Set<UserRole> userRoles;
 
     @JsonManagedReference
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)

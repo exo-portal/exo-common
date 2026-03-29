@@ -20,6 +20,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Builder
@@ -47,10 +48,10 @@ public class Role extends Auditable {
     private List<UserRole> userRoles;
 
     @OneToMany(mappedBy = "role",
-            fetch = FetchType.EAGER,
+            fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
             orphanRemoval = true)
     @JsonManagedReference
-    private List<RoleFeatureAccess> roleFeatureAccesses;
+    private Set<RoleFeatureAccess> roleFeatureAccesses;
 
 }
